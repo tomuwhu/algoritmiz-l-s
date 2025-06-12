@@ -1,14 +1,41 @@
 <script>
-  var t = Array.from({length: 10}).map(v => Array(10).fill(0))
+  var t = $state(Array.from({length: 20}).map(v => Array(20).fill('')))
+  var next = $state('X')
 </script>
-Cica
+<style>
+  table {
+    border-spacing: 5px;
+  }
+  td {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .X {
+    background-color: rgb(252, 170, 170);
+  }
+  .O {
+    background-color: rgb(178, 178, 255);
+  }
+  td:hover {
+    background-color: rgb(177, 177, 177);
+  }
+</style>
+Amőba
 <hr>
 <table>
   <tbody>
-  {#each t as row}
+  {#each t as row, i}
     <tr>
-    {#each row as col}
-      <td>{col}</td>
+    {#each row as v, j}
+      <td
+        class="{v}"
+        onclick={() => {
+          t[i][j] = next = next == 'X' ? 'O' : 'X'
+        }}
+      >{v}</td>
     {/each}
     </tr>
   {/each}

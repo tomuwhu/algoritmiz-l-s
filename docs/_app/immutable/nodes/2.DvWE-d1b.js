@@ -1,1 +1,0 @@
-import{f as r,a as f}from"../chunks/Dsws_iAL.js";import{f as i,s as c,t as m,a as n,u as p,b as _}from"../chunks/8IleDu78.js";import{d as l,s as v}from"../chunks/CvaLCloK.js";var u=(a,t)=>{p(t)},b=r("<button>Cica</button> ",1);function x(a){var t=c(0),e=b(),s=i(e);s.__click=[u,t];var o=n(s);m(()=>v(o,` ${_(t)??""}`)),f(a,e)}l(["click"]);export{x as component};

@@ -1,2 +1,6 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<script>
+  var v = $state(0);
+</script>
+<!-- svelte-ignore a11y_consider_explicit_label -->
+<button onclick={() => {v++}}>Cica</button>
+{v}

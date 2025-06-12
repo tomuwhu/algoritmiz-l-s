@@ -6,7 +6,7 @@ const config = {
       pages: 'docs'
     }),
     paths: {
-      base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
+      base: '/algoritmiz-l-s'
     }
   }
 };

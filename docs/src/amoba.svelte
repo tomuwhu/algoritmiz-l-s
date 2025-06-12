@@ -17,9 +17,7 @@
   }
 </script>
 <style>
-  table {
-    border-spacing: 5px;
-  }
+  table { border-spacing: 5px; }
   td {
     width: 30px;
     height: 30px;
@@ -27,18 +25,10 @@
     border-radius: 10px;
     cursor: pointer;
   }
-  .X {
-    background-color: rgb(252, 170, 170);
-  }
-  .O {
-    background-color: rgb(178, 197, 255);
-  }
-  td:hover {
-    background-color: rgb(177, 177, 177);
-  }
+  .X { background-color: rgb(252, 170, 170); }
+  .O { background-color: rgb(178, 197, 255); }
+  td:hover { background-color: rgb(177, 177, 177); }
 </style>
-<h1>Amőba</h1>
-<hr>
 <table>
   <tbody>
   {#each t as row, i}
@@ -60,5 +50,5 @@
   </tbody>
 </table>
 {#if end}
-<h1>Nyert "{next}"</h1>
+  <h3>Nyert "{next}"</h3>
 {/if}

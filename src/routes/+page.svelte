@@ -24,14 +24,15 @@
       code = text
       loaded = source
     })
-  }}>{source.split('/').pop()}</button>
+  }}>{source.split('/').pop().split('.')[0]}</button>
   {:else}
-  <button class="ui green button">{source.split('/').pop()}</button>
+  <button class="ui blue basic button">{loaded.split('/').pop().split('.')[0]}</button>
   {/if}
 {/each}
 <div class="ui divider"></div>
 <h1>{v}</h1>
 <hr>
+<h1>{loaded.split('/').pop()}</h1>
 <code>
 <HighlightAuto {code} />
 </code>

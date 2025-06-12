@@ -1,38 +1,44 @@
 <script>
-  import { afterNavigate } from '$app/navigation';
-  import { page } from '$app/stores';
-	let { children } = $props();
-  let active = $state(0)
-  let v = $page.url.pathname
-  let base = '/algoritmiz-l-s'
-  const menu = [
-    {name: "Home", link: base + "/"},
-    {name: "Menüpont", link: base + "/m"},
-  ]
-  const refresh = () => {
-    v = $page.url.pathname
-    menu.forEach((item, index) => {
-      if (v == item.link) active = index
-    })
-  }
-  afterNavigate(refresh)
-  refresh()
+  const T = n => Array.from({length: n})
+  var t = $state(T(20).map(_ => T(30).fill('')))
+  var next = $state('X')
 </script>
-<div class="ui pointing menu">
-{#each menu as item}
-    <a class="item {active === menu.indexOf(item) ? 'active' : ''}"
-      onclick={() => {active = menu.indexOf(item)}} href={item.link}>
-      {item.name}
-    </a>
-{/each}
-</div>
-
-{@render children()}
 <style>
-  .ui.menu a.item {
+  table {
+    border-spacing: 5px;
+  }
+  td {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 10px;
     cursor: pointer;
   }
-  .ui.menu a.item:hover {
-    background-color: #d9a9a9;
+  .X {
+    background-color: rgb(252, 170, 170);
+  }
+  .O {
+    background-color: rgb(178, 178, 255);
+  }
+  td:hover {
+    background-color: rgb(177, 177, 177);
   }
 </style>
+<h1>Amőba</h1>
+<hr>
+<table>
+  <tbody>
+  {#each t as row, i}
+    <tr>
+    {#each row as v, j}
+      <td
+        class="{v}"
+        onclick={() => {
+          t[i][j] = next = next == 'X' ? 'O' : 'X'
+        }}
+      >{v}</td>
+    {/each}
+    </tr>
+  {/each}
+  </tbody>
+</table>

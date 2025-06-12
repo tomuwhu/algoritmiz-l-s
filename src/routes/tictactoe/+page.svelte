@@ -1,5 +1,6 @@
 <script>
-  var t = $state(Array.from({length: 20}).map(v => Array(20).fill('')))
+  const T = n => Array.from({length: n})
+  var t = $state(T(20).map(_ => T(30).fill('')))
   var next = $state('X')
 </script>
 <style>
@@ -23,7 +24,7 @@
     background-color: rgb(177, 177, 177);
   }
 </style>
-Amőba
+<h1>Amőba</h1>
 <hr>
 <table>
   <tbody>

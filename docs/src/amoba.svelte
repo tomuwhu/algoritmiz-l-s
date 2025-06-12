@@ -1,7 +1,20 @@
 <script>
   const T = n => Array.from({length: n})
-  var t = $state(T(20).map(_ => T(30).fill('')))
+  var t = $state(T(16).map(_ => T(25).fill('')))
   var next = $state('X')
+  var end = $state(false)
+  const check = (x, y, next) => {
+    var c;
+    [[1, 1], [1, -1], [1, 0], [0, 1]].forEach(ir => {
+      c = 0
+      let [ix, iy] = ir
+      let [xp, yp] = [x, y]
+      while (t[xp] && t[xp][yp] == next) xp += ix, yp += iy, c++
+      [xp, yp] = [x, y]
+      while (t[xp] && t[xp][yp] == next) xp -= ix, yp -= iy, c++
+      if (c > 5) end = true
+    })
+  }
 </script>
 <style>
   table {
@@ -10,7 +23,7 @@
   td {
     width: 30px;
     height: 30px;
-    border: 1px solid black;
+    border: 1px solid rgb(195, 195, 195);
     border-radius: 10px;
     cursor: pointer;
   }
@@ -18,7 +31,7 @@
     background-color: rgb(252, 170, 170);
   }
   .O {
-    background-color: rgb(178, 178, 255);
+    background-color: rgb(178, 197, 255);
   }
   td:hover {
     background-color: rgb(177, 177, 177);
@@ -34,7 +47,11 @@
       <td
         class="{v}"
         onclick={() => {
-          t[i][j] = next = next == 'X' ? 'O' : 'X'
+          if (!end) {
+            t[i][j] = next
+            check(i, j, next)
+            if (!end) next = next == 'X' ? 'O' : 'X'
+          }
         }}
       >{v}</td>
     {/each}
@@ -42,3 +59,6 @@
   {/each}
   </tbody>
 </table>
+{#if end}
+<h1>Nyert "{next}"</h1>
+{/if}

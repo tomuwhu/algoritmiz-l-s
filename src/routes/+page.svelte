@@ -1,16 +1,14 @@
 <script>
   import { onMount } from "svelte";
   var v = $state(10);
-  import { HighlightSvelte, HighlightAuto } from "svelte-highlight";
-  import theme from "svelte-highlight/styles/stackoverflow-dark";
+  import { HighlightSvelte } from "svelte-highlight";
+  //import theme from "svelte-highlight/styles/default-dark";
+  //import theme from "svelte-highlight/styles/darkmoss";
+  import theme from "svelte-highlight/styles/zenburn";
   var code = $state('')
   var loaded = $state('src/menu.svelte')
   var sourcelist = ['src/home.svelte', 'src/amoba.svelte', 'src/menu.svelte']
-  onMount(() => {
-    fetch(loaded).then(res => res.text()).then(text => {
-      code = text
-    })
-  })
+  onMount(() => fetch(loaded).then(v => v.text()).then(v => code = v))
 </script>
 <svelte:head>
   {@html theme}
@@ -34,5 +32,5 @@
 <hr>
 <h1>{loaded.split('/').pop()}</h1>
 <code>
-<HighlightAuto {code} />
+<HighlightSvelte {code} />
 </code>

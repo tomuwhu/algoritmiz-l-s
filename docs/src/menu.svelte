@@ -1,7 +1,7 @@
 <script>
   import { afterNavigate } from '$app/navigation';
   import { page } from '$app/stores';
-	let { children } = $props();
+  let { children } = $props();
   let active = $state(0)
   let v = $page.url.pathname
   let base = '/algoritmiz-l-s'

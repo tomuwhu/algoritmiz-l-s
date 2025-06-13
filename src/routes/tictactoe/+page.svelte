@@ -42,7 +42,7 @@
 {/if}
 
 <style>
-  table { border-spacing: 5px; }
+  table { border-spacing: 5px; user-select: none;}
   td {
     width: 30px;
     height: 30px;

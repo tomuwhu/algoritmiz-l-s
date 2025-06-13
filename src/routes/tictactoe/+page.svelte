@@ -1,6 +1,6 @@
 <script>
   const T = n => Array.from({length: n})
-  var t = $state(T(16).map(_ => T(25).fill('')))
+  var t = $state(T(16).map(_ => T(25).fill('I')))
   var next = $state('X')
   var end = $state(false)
   const check = (x, y, next) => {
@@ -23,7 +23,7 @@
     <tr>
     {#each row as v, j}
       <td
-        class="{v}"
+        class="{end ? `Z${v}` : v}"
         onclick={() => {
           if (!end) {
             t[i][j] = next
@@ -31,7 +31,7 @@
             if (!end) next = next == 'X' ? 'O' : 'X'
           }
         }}
-      >{v}</td>
+      >{v != 'I' ? v : ''}</td>
     {/each}
     </tr>
   {/each}
@@ -48,9 +48,11 @@
     height: 30px;
     border: 1px solid rgb(195, 195, 195);
     border-radius: 10px;
-    cursor: pointer;
   }
+  .ZX { background-color: rgb(255, 0, 0); }
+  .ZO { background-color: rgb(0, 0, 255); }
   .X { background-color: rgb(252, 170, 170); }
   .O { background-color: rgb(178, 197, 255); }
-  td:hover { background-color: rgb(177, 177, 177); }
+  td.I:hover { background-color: rgb(177, 177, 177); cursor: pointer;}
+  td.Z { background-color: rgb(239, 239, 239); color: rgb(255, 255, 255); }
 </style>

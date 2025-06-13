@@ -18,6 +18,7 @@
   afterNavigate(refresh)
   refresh()
 </script>
+
 <div class="ui pointing menu">
 {#each menu as item}
     <a class="item {active === menu.indexOf(item) ? 'active' : ''}"
@@ -28,6 +29,7 @@
 </div>
 
 {@render children()}
+
 <style>
   .ui.menu a.item {
     cursor: pointer;

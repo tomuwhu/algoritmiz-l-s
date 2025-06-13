@@ -16,19 +16,7 @@
     })
   }
 </script>
-<style>
-  table { border-spacing: 5px; }
-  td {
-    width: 30px;
-    height: 30px;
-    border: 1px solid rgb(195, 195, 195);
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  .X { background-color: rgb(252, 170, 170); }
-  .O { background-color: rgb(178, 197, 255); }
-  td:hover { background-color: rgb(177, 177, 177); }
-</style>
+
 <table>
   <tbody>
   {#each t as row, i}
@@ -52,3 +40,17 @@
 {#if end}
   <h3>Nyert "{next}"</h3>
 {/if}
+
+<style>
+  table { border-spacing: 5px; }
+  td {
+    width: 30px;
+    height: 30px;
+    border: 1px solid rgb(195, 195, 195);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .X { background-color: rgb(252, 170, 170); }
+  .O { background-color: rgb(178, 197, 255); }
+  td:hover { background-color: rgb(177, 177, 177); }
+</style>

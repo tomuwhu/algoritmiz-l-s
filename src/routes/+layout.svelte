@@ -8,6 +8,7 @@
   const menu = [
     {name: "Home", link: base + "/"},
     {name: "Amőba", link: base + "/tictactoe"},
+    {name: "X1", link: base + "/x1"},
   ]
   const refresh = () => {
     v = $page.url.pathname

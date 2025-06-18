@@ -11,7 +11,6 @@
 <svelte:head>
   {@html theme}
 </svelte:head>
-<!-- svelte-ignore a11y_consider_explicit_label -->
 <button class="ui red button" onclick={() => {v++}}>Increment</button>
 {#each sourcelist as source}
   {#if source != loaded}
